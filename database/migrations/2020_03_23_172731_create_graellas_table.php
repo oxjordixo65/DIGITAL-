@@ -15,7 +15,7 @@ class CreateGraellasTable extends Migration
     {
         Schema::create('graellas', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('hora');
+            $table->time('hora');
             $table->dateTime('dia');
             $table->timestamps();
         });

@@ -31,4 +31,6 @@ Route::resource('canal', 'canalctl');
 
 Route::resource('programa', 'programactl');
 
+Route::resource('graella', 'graellactl');
+
 Route::resource('alumn', 'alumnctl');

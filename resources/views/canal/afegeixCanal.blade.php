@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulari per afegir dades a la taula canals de la base de dades digital</title>
 </head>
 
 <body>
-    <title>Formulari per afegir dades a la taula canals de la base de dades digital</title>
+
 
     @if(\Session::has('Exit'))
     <div class="alert alert-success">
