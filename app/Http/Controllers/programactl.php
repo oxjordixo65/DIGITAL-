@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class loginctl extends Controller
+use App\programa;
+class programactl extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +14,7 @@ class loginctl extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -23,7 +24,8 @@ class loginctl extends Controller
      */
     public function create()
     {
-        return view('login.login');
+        //
+        return view('programa\afegeixPrograma');
     }
 
     /**
@@ -35,6 +37,21 @@ class loginctl extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'nom_programa' => 'required',
+            'descripcio' => 'required',
+            'tipus' => 'required',
+            'classificacio' => 'required'
+        ]);
+
+        $nouprograma = new programa([
+            'nom_programa' => $request->get('nom_programa'),
+            'descripcio' => $request->get('descripcio'),
+            'tipus' => $request->get('tipus'),
+            'classificacio' => $request->get('classificacio')
+        ]);
+        $nouprograma->save();
+        return redirect()->route('programa.create')->with('Exit', 'Dades afegides');
     }
 
     /**

@@ -23,7 +23,9 @@ if($password==$_POST["password"]){
     header('Location: canal');
 
     //NO FUNCIONA ARREGLAR
-    echo "<form action=\"{{url('canal')}}\" method=\"get\">
-            <input type=\"submit\"/>
-        </form>";
+    echo <<<END
+    <form action="{{url('canal')}}" method="get">
+        <input type="submit"/>
+    </form>
+    END;
 }

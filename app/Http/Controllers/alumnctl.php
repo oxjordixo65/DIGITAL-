@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\alumn;
 
-class loginctl extends Controller
+class alumnctl extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +24,8 @@ class loginctl extends Controller
      */
     public function create()
     {
-        return view('login.login');
+        //
+        return view('alumn\afegeixAlumne');  //ALERTA EN WINDOWS EN VEZ DE UN PUNTO SE PONE UNA CONTRABARRA!!!
     }
 
     /**
@@ -35,6 +37,19 @@ class loginctl extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'nom' => 'required',
+            'cognom1' => 'required',
+            'cognom2' => 'required'
+        ]);
+
+        $noualumne = new alumn([
+            'nom' => $request->get('nom'),
+            'cognom1' => $request->get('cognom1'),
+            'cognom2' => $request->get('cognom2')
+        ]);
+        $noualumne->save();
+        return redirect()->route('alumn.create')->with('Exit', 'Dades afegides');
     }
 
     /**

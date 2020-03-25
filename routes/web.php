@@ -17,13 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('login', function(){
+Route::post('login', function () {
     return view('login/login');
 });
 
 Route::get('canal', function () {
     return view('canals/afegeixCanal');
 });
-Route::resource('logintxt','login/login.txt');
+//Route::resource('logintxt','login/login.txt');
 
-Route::resource('canales','canals/afegeixCanal');
+
+Route::resource('canal', 'canalctl');
+
+Route::resource('programa', 'programactl');
+
+Route::resource('alumn', 'alumnctl');

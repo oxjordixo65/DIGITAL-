@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\canal;
 
-class loginctl extends Controller
+class canalctl extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,7 @@ class loginctl extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -23,7 +25,8 @@ class loginctl extends Controller
      */
     public function create()
     {
-        return view('login.login');
+        //
+        return view('canal\afegeixCanal');
     }
 
     /**
@@ -35,6 +38,15 @@ class loginctl extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'nom_canal' => 'required'
+        ]);
+
+        $noucanal = new canal([
+            'nom_canal' => $request->get('nom_canal')
+        ]);
+        $noucanal->save();
+        return redirect()->route('canal.create')->with('Exit', 'Dades afegides');
     }
 
     /**
