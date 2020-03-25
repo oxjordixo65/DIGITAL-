@@ -21,8 +21,12 @@ Route::post('login', function () {
     return view('login/login');
 });
 
-Route::get('canal', function () {
-    return view('canals/afegeixCanal');
+Route::post('canal', function () {
+    return view('canal/afegeixCanal');
+});
+
+Route::get('canalGet', function () {
+    return view('canal/afegeixCanal');
 });
 //Route::resource('logintxt','login/login.txt');
 
