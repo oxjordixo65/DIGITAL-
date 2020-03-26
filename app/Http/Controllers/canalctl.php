@@ -91,7 +91,7 @@ class canalctl extends Controller
         $canal = canal::find($id);
         $canal->nom_canal = $request->get('nom_canal');
         $canal->save();
-        return redirect()->route('canal.index')->with('success','Data updated');
+        return redirect()->route('canal.index')->with('success', 'Data updated');
     }
 
     /**
@@ -103,5 +103,8 @@ class canalctl extends Controller
     public function destroy($id)
     {
         //
+        $canal = canal::find($id);
+        $canal->delete();
+        return redirect()->route('canal.index')->with('success','Data deleted');
     }
 }

@@ -34,7 +34,13 @@
                 <td>{{$row['classificacio']}}</td>
                 <td><a id="btnEdit" href="{{action('programactl@edit', 
                 $row['id'])}}" class="btn btn-warning">Edit</td>
-                <td></td>
+                <td>
+                    <form action="{{action('programactl@destroy',$row['id'])}}" method="POST" class="delete_form">
+                        {{csrf_field()}}
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
             @endforeach
         </tbody>

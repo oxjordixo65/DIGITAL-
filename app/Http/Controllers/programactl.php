@@ -115,5 +115,8 @@ class programactl extends Controller
     public function destroy($id)
     {
         //
+        $programa = programa::find($id);
+        $programa->delete();
+        return redirect()->route('programa.index')->with('success','Data deleted');
     }
 }

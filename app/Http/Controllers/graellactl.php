@@ -115,5 +115,8 @@ class graellactl extends Controller
     public function destroy($id)
     {
         //
+        $graella = graella::find($id);
+        $graella->delete();
+        return redirect()->route('graella.index')->with('success','Data deleted');
     }
 }

@@ -28,11 +28,18 @@
                 <td>{{$row['nom_canal']}}</td>
                 <td><a id="btnEdit" href="{{action('canalctl@edit', 
                 $row['id'])}}" class="btn btn-warning">Edit</a></td>
-                <td></td>
+                <td>
+                    <form action="{{action('canalctl@destroy',$row['id'])}}" method="POST" class="delete_form">
+                        {{csrf_field()}}
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
             @endforeach
         </tbody>
     </table>
 </div>
+
 
 @endsection
