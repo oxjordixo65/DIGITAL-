@@ -14,7 +14,7 @@ fclose($file);
 
 
 
-if ($user!=$_POST["user"] || $password != $_POST["password"]) {
+if ($user!=$_POST["user"] || $password != $_POST["password"] ) {
 
     //NO FUNCIONA el mustache en php por lo que he usado el die para mandarlo a la mierda en caso de que el user o password sea incorrecto
     
@@ -35,9 +35,20 @@ echo "Conexion establecida como ".$_POST["user"];
 </head>
 
 <body>
+    <h3>Afegir</h3>
     <form action="{{url('canalGet')}}" method="get">
         {{csrf_field()}}
-        <input type="submit"/>
+        <input type="submit" value="Canal"/>
+    </form>
+
+    <form action="{{url('programaGet')}}" method="get">
+        {{csrf_field()}}
+        <input type="submit" value="Programa"/>
+    </form>
+
+    <form action="{{url('graellaGet')}}" method="get">
+        {{csrf_field()}}
+        <input type="submit" value="Graella"/>
     </form>
 </body>
 

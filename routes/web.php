@@ -28,6 +28,14 @@ Route::post('canal', function () {
 Route::get('canalGet', function () {
     return view('canal/afegeixCanal');
 });
+
+Route::get('programaGet', function () {
+    return view('programa/afegeixPrograma');
+});
+
+Route::get('graellaGet', function () {
+    return view('graella/afegeixGraella');
+});
 //Route::resource('logintxt','login/login.txt');
 
 

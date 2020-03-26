@@ -49,7 +49,7 @@ class alumnctl extends Controller
             'cognom2' => $request->get('cognom2')
         ]);
         $noualumne->save();
-        return redirect()->route('alumn.create')->with('Exit', 'Dades afegides');
+        return redirect()->route('alumn.create')->with('success', 'Dades afegides');
     }
 
     /**

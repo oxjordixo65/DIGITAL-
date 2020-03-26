@@ -14,6 +14,8 @@ class programactl extends Controller
     public function index()
     {
         //
+        $programas = programa::all()->toArray();
+        return view('programa\index', compact('programas'));
         
     }
 
@@ -51,7 +53,7 @@ class programactl extends Controller
             'classificacio' => $request->get('classificacio')
         ]);
         $nouprograma->save();
-        return redirect()->route('programa.create')->with('Exit', 'Dades afegides');
+        return redirect()->route('programa.create')->with('success', 'Dades afegides');
     }
 
     /**

@@ -15,6 +15,8 @@ class graellactl extends Controller
     public function index()
     {
         //
+        $graellas = graella::all()->toArray();
+        return view('graella\index', compact('graellas'));
     }
 
     /**
@@ -51,7 +53,7 @@ class graellactl extends Controller
             'dia' => $request->get('dia')
         ]);
         $nougraella->save();
-        return redirect()->route('graella.create')->with('Exit', 'Dades afegides');
+        return redirect()->route('graella.create')->with('success', 'Dades afegides');
     }
 
     /**

@@ -15,7 +15,8 @@ class canalctl extends Controller
     public function index()
     {
         //
-        
+        $canals = canal::all()->toArray();
+        return view('canal\index', compact('canals'));
     }
 
     /**
@@ -46,7 +47,7 @@ class canalctl extends Controller
             'nom_canal' => $request->get('nom_canal')
         ]);
         $noucanal->save();
-        return redirect()->route('canal.create')->with('Exit', 'Dades afegides');
+        return redirect()->route('canal.create')->with('success', 'Dades afegides');
     }
 
     /**

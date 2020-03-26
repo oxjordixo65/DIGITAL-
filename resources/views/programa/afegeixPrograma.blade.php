@@ -1,41 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulari per afegir dades a la taula programa de la base de dades digital</title>
-</head>
-
-<body>
-
-
-    @if(\Session::has('Exit'))
-    <div class="alert alert-success">
-        <p>{{\Session::get('Exit')}}</p>
+@section('content')
+<div>
+    @if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    @if(\Session::has('success'))
+    <div class="alert alert-success" role="alert">
+        {{\Session::get('success')}}
     </div>
     @endif
     <form action="{{url('programa')}}" method="POST">
         {{csrf_field()}}
         <br>
-        <b>Introudeix les dades del programa:<br><br>
-        </b>
-        Nom Programa:
+        <h3>Introdueix les dades del programa</h3>
+        <br><br>
+        Nom Programa:&nbsp;&nbsp;
         <input type="text" name="nom_programa">
         <br>
-        Descripcio:
+        Descripcio:&nbsp;&nbsp;
         <input type="text" name="descripcio">
         <br>
-        Tipus:
+        Tipus:&nbsp;&nbsp;
         <input type="text" name="tipus">
         <br>
-        Classificacio:
+        Classificacio:&nbsp;&nbsp;
         <input type="text" name="classificacio">
-        <br>
         <br><br>
-        <input value="Envia dades" type="submit">
+        <input value="Envia dades" type="submit" class="btn btn-primary">
     </form>
-
-</body>
-
-</html>
+</div>
+@endsection

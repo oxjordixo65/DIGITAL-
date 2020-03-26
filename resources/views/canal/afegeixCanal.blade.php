@@ -1,32 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulari per afegir dades a la taula canals de la base de dades digital</title>
-</head>
-
-<body>
-
-
-    @if(\Session::has('Exit'))
-    <div class="alert alert-success">
-        <p>{{\Session::get('Exit')}}</p>
+@section('content')
+<div>
+    @if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    @if(\Session::has('success'))
+    <div class="alert alert-success" role="alert">
+        {{\Session::get('success')}}
     </div>
     @endif
     <form action="{{url('canal')}}" method="POST">
         {{csrf_field()}}
         <br>
-        <b>Introudeix les dades del canal:<br><br>
-        </b>
-        Nom Canal:
-        <input type="text" name="nom_canal">
-
+        <h3>Introdueix les dades del canal</h3>
         <br><br>
-        <input value="Envia dades" type="submit">
+        </b>
+        Nom Canal:&nbsp;&nbsp;
+        <input type="text" name="nom_canal">
+        <br><br>
+        <input value="Envia dades" type="submit" class="btn btn-primary">
     </form>
-
-</body>
-
-</html>
+</div>
+@endsection
