@@ -2,10 +2,17 @@
 
 @section('content')
 
-
+@if(\Session::has('success'))
+<div class="alert alert-success" role="alert">
+    {{\Session::get('success')}}
+</div>
+@endif
 <div>
     </br>
     </br>
+    <div align="right">
+        <a href="{{route('graella.create')}}" class="btn btn-primary">Add</a>
+    </div>
     <h3 align="center">Graella Data</h3>
     <table class="table">
         <thead class="thead-dark">
@@ -25,7 +32,8 @@
                 <td>{{$row['canal_id']}}</td>
                 <td>{{$row['hora']}}</td>
                 <td>{{$row['dia']}}</td>
-                <td></td>
+                <td><a id="btnEdit" href="{{action('graellactl@edit', 
+                $row['id'])}}" class="btn btn-warning">Edit</td>
                 <td></td>
             </tr>
             @endforeach

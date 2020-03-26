@@ -1,4 +1,3 @@
-
 @extends('master')
 
 @section('content')
@@ -20,7 +19,8 @@
     <form action="{{url('graella')}}" method="POST">
         {{csrf_field()}}
         <br>
-        <h3>Introudeix les dades del programa</h3><br><br>
+        <h3>Introdueix les dades del programa</h3>
+        <br><br>
         ID Canal:&nbsp;&nbsp;
         <input type="number" name="canal_id">
         <br>

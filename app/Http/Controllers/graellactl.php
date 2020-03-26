@@ -76,6 +76,8 @@ class graellactl extends Controller
     public function edit($id)
     {
         //
+        $graellas = graella::find($id);
+        return view('graella.edit', compact('graellas', 'id'));
     }
 
     /**
@@ -88,6 +90,20 @@ class graellactl extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'programa_id' => 'required',
+            'canal_id' => 'required',
+            'hora' => 'required',
+            'dia' => 'required'
+        ]);
+        //$canal=new Canal();
+        $graella = graella::find($id);
+        $graella->programa_id = $request->get('programa_id');
+        $graella->canal_id = $request->get('canal_id');
+        $graella->hora = $request->get('hora');
+        $graella->dia = $request->get('dia');
+        $graella->save();
+        return redirect()->route('graella.index')->with('success','Data updated');
     }
 
     /**

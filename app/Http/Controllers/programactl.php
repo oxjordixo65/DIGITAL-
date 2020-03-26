@@ -76,6 +76,8 @@ class programactl extends Controller
     public function edit($id)
     {
         //
+        $programas = programa::find($id);
+        return view('programa.edit', compact('programas', 'id'));
     }
 
     /**
@@ -88,6 +90,20 @@ class programactl extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nom_programa' => 'required',
+            'descripcio' => 'required',
+            'tipus' => 'required',
+            'classificacio' => 'required'
+        ]);
+        //$canal=new Canal();
+        $programa = programa::find($id);
+        $programa->nom_programa = $request->get('nom_programa');
+        $programa->descripcio = $request->get('descripcio');
+        $programa->tipus = $request->get('tipus');
+        $programa->classificacio = $request->get('classificacio');
+        $programa->save();
+        return redirect()->route('programa.index')->with('success','Data updated');
     }
 
     /**

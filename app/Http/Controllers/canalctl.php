@@ -70,6 +70,8 @@ class canalctl extends Controller
     public function edit($id)
     {
         //
+        $canals = canal::find($id);
+        return view('canal.edit', compact('canals', 'id'));
     }
 
     /**
@@ -82,6 +84,14 @@ class canalctl extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nom_canal' => 'required'
+        ]);
+        //$canal=new Canal();
+        $canal = canal::find($id);
+        $canal->nom_canal = $request->get('nom_canal');
+        $canal->save();
+        return redirect()->route('canal.index')->with('success','Data updated');
     }
 
     /**
