@@ -25,6 +25,7 @@
         {{csrf_field()}}
         <input type="hidden" name="_method" value="PATCH" />
         <input type="text" name="nom_canal" class="form-control" value="{{$canals->nom_canal}}" placeholder="Enter nom canal" />
+        <input type="file" name="image" class="form-control" value="{{$canals->image}}" placeholder="Enter image" />
         <input type="submit" class="btn btn-primary" value="Edit" />
     </form>
 </div>
