@@ -40,11 +40,13 @@ class canalctl extends Controller
     {
         //
         $this->validate($request, [
-            'nom_canal' => 'required'
+            'nom_canal' => 'required',
+            'image' => 'required'
         ]);
 
         $noucanal = new canal([
-            'nom_canal' => $request->get('nom_canal')
+            'nom_canal' => $request->get('nom_canal'),
+            'image' => $request->get('image')
         ]);
         $noucanal->save();
         return redirect()->route('canal.create')->with('success', 'Dades afegides');
@@ -85,11 +87,13 @@ class canalctl extends Controller
     {
         //
         $this->validate($request, [
-            'nom_canal' => 'required'
+            'nom_canal' => 'required',
+            'image' => 'required'
         ]);
         //$canal=new Canal();
         $canal = canal::find($id);
         $canal->nom_canal = $request->get('nom_canal');
+        $canal->image = $request->get('image');
         $canal->save();
         return redirect()->route('canal.index')->with('success', 'Data updated');
     }

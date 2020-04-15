@@ -25,6 +25,7 @@
         Nom Canal:&nbsp;&nbsp;
         <input type="text" name="nom_canal">
         <br><br>
+        <input type="file" name="image">
         <input value="Envia dades" type="submit" class="btn btn-primary">
     </form>
 </div>

@@ -18,6 +18,7 @@
         <thead class="thead-dark">
             <tr>
                 <th>Nom Canal</th>
+                <th>Image</th>
                 <th id="editTH">Edit</th>
                 <th id="deleteTH">Delete</th>
             </tr>
@@ -26,7 +27,8 @@
             @foreach($canals as $row)
             <tr>
                 <td>{{$row['nom_canal']}}</td>
-                <td><a  id="btnEdit" href="{{action('canalctl@edit', 
+                <td>{{$row['image']}}</td>
+                <td><a id="btnEdit" href="{{action('canalctl@edit', 
                 $row['id'])}}" class="btn btn-warning editBtn">Edit</a></td>
                 <td>
                     <form class="deleteBtn" action="{{action('canalctl@destroy',$row['id'])}}" method="POST" class="delete_form">
