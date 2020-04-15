@@ -21,6 +21,10 @@ Route::post('login', function () {
     return view('login/login');
 });
 
+Route::post('logout', function () {
+    return view('logout/logout');
+});
+
 Route::post('canal', function () {
     return view('canal/afegeixCanal');
 });

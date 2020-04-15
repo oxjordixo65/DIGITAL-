@@ -11,7 +11,7 @@
     </br>
     </br>
     <div align="right">
-        <a href="{{route('canal.create')}}" class="btn btn-primary">Add</a>
+        <a id="addBtn" href="{{route('canal.create')}}" class="btn btn-primary">Add</a>
     </div>
     <h3 align="center">Programa Data</h3>
     <table class="table">
@@ -21,8 +21,8 @@
                 <th>Descripcio</th>
                 <th>Tipus</th>
                 <th>Classificacio</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th id="editTH">Edit</th>
+                <th id="deleteTH">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -33,9 +33,9 @@
                 <td>{{$row['tipus']}}</td>
                 <td>{{$row['classificacio']}}</td>
                 <td><a id="btnEdit" href="{{action('programactl@edit', 
-                $row['id'])}}" class="btn btn-warning">Edit</td>
+                $row['id'])}}" class="btn btn-warning editBtn">Edit</td>
                 <td>
-                    <form action="{{action('programactl@destroy',$row['id'])}}" method="POST" class="delete_form">
+                    <form class="deleteBtn" action="{{action('programactl@destroy',$row['id'])}}" method="POST" class="delete_form">
                         {{csrf_field()}}
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger">Delete</button>

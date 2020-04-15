@@ -105,11 +105,14 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form> -->
             <form class="form-inline my-2 my-lg-0" action="{{url('login')}}" method="post">
-
                 <input type="text" id="user" name="user" />
                 <input type="password" id="password" name="password" />
                 {{csrf_field()}}
                 <input type="submit" value="Login">
+            </form>
+            <form class="form-inline my-2 my-lg-0" action="{{url('logout')}}" method="post">
+                {{csrf_field()}}
+                <input type="submit" value="Logout">
             </form>
         </div>
     </nav>
