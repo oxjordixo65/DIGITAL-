@@ -11,7 +11,7 @@
     </br>
     </br>
     <div align="right">
-        <a id="addBtn" href="{{route('canal.create')}}" class="btn btn-primary">Add</a>
+        <a id="addBtn" href="{{route('programa.create')}}" class="btn btn-primary">Add</a>
     </div>
     <h3 align="center">Programa Data</h3>
     <table class="table">
